@@ -35,11 +35,11 @@ some time. The OpenDNS server may be a good secondary server:
 
 ## Privacy
 
-The intention is not to log any invasive information about users.
+The intention is not to invade user's privacy.
 
 At the moment, all DNS queries logged in No Track are reported as originating
-from `127.0.0.1`, instead of the user's actual IP address. However it appears
-that HTTP requests for blocked domains are still logged.
+from `127.0.0.1`, instead of the user's actual IP address. However
+IP addresses for HTTP requests for blocked domains are still logged.
 
 To review the privacy of the service, the server configuration is documented
 in [server-config.md](server-config.md).
