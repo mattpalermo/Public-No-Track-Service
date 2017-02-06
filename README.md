@@ -64,7 +64,8 @@ server announced to the public. Let's see how it goes!
 
 ## Feedback
 
-Any feedback is welcome in the [issues list].
+Any feedback is welcome in the [issues list]. Private feedback is welcome via
+email at <matt.r.palermo@gmail.com>.
 
 ## Open source server configuration
 
