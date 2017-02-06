@@ -10,7 +10,7 @@ how the server would be configured from scratch.
 
 ## Operating System
 
-An Ubuntu 16.04 LTS image from binary lane is used as the base system.
+An Ubuntu 16.04 LTS image from [BinaryLane] is used as the base system.
 The system is kept up to date using `apt update && apt upgrade`.
 
 ## Users and SSH
@@ -132,3 +132,5 @@ service bind9 restart
 ```
 ufw allow 53
 ```
+
+[BinaryLane]: https://www.binarylane.com.au
