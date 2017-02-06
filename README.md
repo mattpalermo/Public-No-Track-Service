@@ -35,17 +35,14 @@ some time. The OpenDNS server may be a good secondary server:
 
 ## Privacy
 
-No identifying information is logged at all.
+The intention is not to log any invasive information about users.
 
-To review and confirm this, you can review the server configuration documented
-in [server-config.md](server-config.md). Here is a screen shot of the Public No
-Track service admin interface showing the DNS queries log. The IP addresses
-appear as `127.0.0.1`, instead of the user's actual IP address.
+At the moment, all DNS queries logged in No Track are reported as originating
+from `127.0.0.1`, instead of the user's actual IP address. However it appears
+that HTTP requests for blocked domains are still logged.
 
-![No IPs logged demonstration](no-IPs-logged-demo.png)
-
-The configuration used for the server is completely open source and can be
-reviewed as described below.
+To review the privacy of the service, the server configuration is documented
+in [server-config.md](server-config.md).
 
 ## Availability
 
