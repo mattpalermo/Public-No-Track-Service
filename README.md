@@ -1,63 +1,59 @@
 # Public No Track Service
 
-A ready to go [No Track] service
-available from any internet connection.
+**This service has been discontinued**
+
+The Public No Track Service was an experiment where a ready to go [No Track]
+service was made available from any internet connection.
 
 [No Track] is a "DNS server which blocks
 Tracking websites from creating cookies or sending tracking pixels." [[1]] The
-Public No Track Service provides a ready to go No Track server available from
-any internet connection. This allows you to:
+Public No Track Service provided a ready to go No Track server available from
+any internet connection. This allowed you to:
 
 * Use No Track without any having to set up your own No Track server on every
   network you need it on.
 * Use No Track on networks which you don't control.
 * Use No Track without any fuss.
 
-## Getting Started
+The service has been discontinued for two reasons:
 
-To use the Public No Track Service, configure your device or network to use the
-Public No Track DNS Server.
+* Using [No Track] in this way is not secure as discussed in
+  [No Track Issue #210].
+* The VPS provider that was being used has politely asked not to run an open,
+  recursive, DNS resolver on their system.
 
-**Public No Track DNS IP v4 --** `103.16.128.210`  
-**Public No Track DNS IP v6 --** `2404:9400:1:0:216:3eff:fef0:971f`
+## Security
 
-## Reliability
+As mentioned above, using No Track in the way that has been presented here
+is insecure. A discussion about this can be found in [No Track Issue #210].
+Essentially, when requests are blocked and re-routed to the No Track server
+instead, the No Track server is actually pretending to be the original server.
+For good reasons, HTTPS is designed such that no server can pretend to be
+another server. This keeps you safe from entering in your bank credentials into
+a server pretending to be your bank. To get around this, when No Track returns
+alternative content for a blocked request, it must do so without a valid HTTPS
+connection. This leaves the user susceptible to "man in the middle" attacks where
+an attacker which controls some part of the network between the No Track server
+and the user can manipulate these blocked requests in any way they want without
+detection.
 
-The Public No Track Service hasn't seen any action yet and users like you are
-needed to test it out! Feedback is welcome in the
-[issues list].
-
-It is recommended that you set a secondary DNS server in your device or network
-configuration, just in case the Public No Track Service is not available at
-some time. The OpenDNS server may be a good secondary server:
-
-**OpenDNS IP v4 --** `208.67.222.222`
-
-## Privacy
-
-The intention is not to invade user's privacy.
-
-At the moment, all DNS queries logged in No Track are reported as originating
-from `127.0.0.1`, instead of the user's actual IP address. However
-IP addresses for HTTP requests for blocked domains are still logged.
-
-To review the privacy of the service, the server configuration is documented
-in [server-config.md](server-config.md).
+To mitigate against this vulnerability, No Track users need to be able to trust
+the route between themselves and the No Track server. This means that No Track
+is perfectly safe when used as it was intended, in your own local network.
+It could also be made safe by creating and using a virtual private network (VPN)
+where both the user and No Track server could safely communicate over an
+artificially secure network.
 
 ## Availability
 
-Currently there is only one Public No Track Service DNS Server hosted in
-Brisbane, Australia. It works great here in Australia but for users elsewhere in
-the world, ping times may be an issue. Please express your interest for a server
-in your part of the world in the [issues list]. A suitable funding model will
-have to be implemented to support this.
-
-The server doesn't have much resources (1 CPU, 512MB RAM, 10GB storage, 200GB
-transfer). It will be interesting to see how much traffic this can handle. If
-the server becomes overwhelmed by traffic, it may need to be upgraded. Again, to
-do this, a suitable funding model will have to be implemented.
+The service was originally hosted on a budget VPS (1 CPU, 512MB RAM,
+10GB storage, 200GB transfer). This was more than enough to handle the small
+number of requests that it received very quickly.
 
 ## News
+
+**2017-03-03** - The service has been discontinued due to the reasons listed in
+the README.
 
 **2017-02-06** - The Public No Track Service GitHub repo was created and Brisbane
 server announced to the public. Let's see how it goes!
@@ -71,13 +67,9 @@ email at <matt.r.palermo@gmail.com>.
 
 The configuration used to implement the service is documented in
 [server-config.md](server-config.md). Any review or suggestion about the
-configuration is welcome. Discussion is welcome in the [issues list]. White-hat
-pen testing is also welcome as long as it is not too disruptive.
-
-For responsible disclosure of sensitive security vulnerabilities please email
-me at <matt.r.palermo@gmail.com> so I can fix the issue before publishing
-the issue.
+configuration is welcome. Discussion is welcome in the [issues list].
 
 [1]: https://github.com/quidsup/notrack/blob/master/README.md
 [No Track]: https://github.com/quidsup/notrack
 [issues list]: https://github.com/mattpalerm/Public-No-Track-Service/issues
+[No Track Issue #210]: https://github.com/quidsup/notrack/issues/210
